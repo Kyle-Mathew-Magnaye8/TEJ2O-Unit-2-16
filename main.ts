@@ -8,24 +8,8 @@
 */
 
 // setup
-radio.setGroup(47)
-let distanceNumber: number = 0
+radio.setGroup(41)
 basic.showIcon(IconNames.Happy)
-
-input.onButtonPressed(Button.A, function () {
-  basic.showIcon(IconNames.Triangle)
-  while (true) {
-    distanceNumber = sonar.ping(
-      DigitalPin.P1,
-      DigitalPin.P2,
-      PingUnit.Centimeters
-    )
-    // send the measured distance via radio
-    radio.sendNumber(distanceNumber)
-
-    // small pause to stabilize transmission (100ms)
-  } basic.pause(100)
-})
 
 // recives and shows strings from other Micro:bits
 radio.onReceivedString(function (receivedString) {
